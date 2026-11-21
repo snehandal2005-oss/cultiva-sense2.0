@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Disease Detection - CultivaSense</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="weather-page">
+
+    <div class="weather-container">
+
+        <a href="{{ url_for('dashboard') }}" class="back-link">
+            ← Back to Dashboard
+        </a>
+
+        <h1>🌿 AI Crop Disease Detection</h1>
+        <p>Upload a photo of your crop leaf for analysis.</p>
+
+        <div class="weather-card">
+
+            <h2>Upload Crop Image</h2>
+
+            <input type="file" id="leafImage" accept="image/*">
+
+            <br><br>
+
+            <img id="preview" alt="Leaf preview"
+                 style="display:none; max-width:300px; width:100%; border-radius:12px;">
+
+            <br><br>
+
+            <button type="button" id="detectBtn" disabled>
+                🔬 Detect Disease
+            </button>
+
+            <p id="result">Select a leaf image to begin.</p>
+
+        </div>
+
+    </div>
+
+    <script>
+        const input = document.getElementById("leafImage");
+        const preview = document.getElementById("preview");
+        const button = document.getElementById("detectBtn");
+        const result = document.getElementById("result");
+
+        input.addEventListener("change", function () {
+            const file = input.files[0];
+
+            if (!file) {
+                preview.style.display = "none";
+                button.disabled = true;
+                result.textContent = "Select a leaf image to begin.";
+                return;
+            }
+
+            if (!file.type.startsWith("image/")) {
+                alert("Please select an image file.");
+                input.value = "";
+                button.disabled = true;
+                return;
+            }
+
+            preview.src = URL.createObjectURL(file);
+            preview.style.display = "block";
+            button.disabled = false;
+            result.textContent = "Image ready for analysis.";
+        });
+
+        button.addEventListener("click", function () {
+            result.textContent =
+                "AI model not connected yet. Image upload is working!";
+        });
+    </script>
+
+</body>
+</html>

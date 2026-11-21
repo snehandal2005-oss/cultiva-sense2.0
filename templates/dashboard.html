@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Dashboard - CultivaSense</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="dashboard-page">
+
+    <aside class="sidebar">
+
+        <h2>🌱 CultivaSense</h2>
+
+        <a href="dashboard.html">🏠 Dashboard</a>
+        <a href="#">🔬 Disease Detection</a>
+        <a href="#">🌤️ Weather Forecast</a>
+        <a href="#">🌱 Crop Recommendation</a>
+        <a href="#">💧 Smart Irrigation</a>
+        <a href="#">🧪 Soil Health</a>
+        <a href="#">🌿 Fertilizer Recommendation</a>
+        <a href="#">📈 Market Prices</a>
+        <a href="#">👤 My Profile</a>
+        <a href="index.html">🚪 Back to Home</a>
+
+    
+<form action="{{ url_for('logout') }}" method="POST">
+    <button type="submit" class="logout-btn">
+        🚪 Logout
+    </button>
+</form>
+
+</aside>
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+         <h1>Welcome, {{ farmer_name }}! 👋</h1>
+            <p>Monitor your farm and make smarter decisions.</p>
+        </header>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <h3>🌡️ Temperature</h3>
+                <h2>28°C</h2>
+                <p>Sample temperature</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>💧 Humidity</h3>
+                <h2>65%</h2>
+                <p>Sample humidity</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>🌱 Soil Moisture</h3>
+                <h2>42%</h2>
+                <p>Sample soil moisture</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>🧪 Soil pH</h3>
+                <h2>6.5</h2>
+                <p>Sample pH level</p>
+            </div>
+
+        </div>
+
+        <h2>Farm Management Tools</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <span class="feature-icon">🔬</span>
+                <h3>AI Disease Detection</h3>
+                <p>Upload a crop image to identify diseases.</p>
+                <button>Detect Disease</button>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🌤️</span>
+                <h3>Weather Forecast</h3>
+                <p>Check weather conditions for your farm.</p>
+                <button type="button" onclick="window.location.href='{{ url_for('weather') }}'">
+    View Weather
+</button>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🌱</span>
+                <h3>Crop Recommendation</h3>
+                <p>Find suitable crops for your soil.</p>
+                <button>Recommend Crop</button>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">💧</span>
+                <h3>Smart Irrigation</h3>
+                <p>Monitor and manage water requirements.</p>
+                <button>Manage Irrigation</button>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🧪</span>
+                <h3>Soil Health Analysis</h3>
+                <p>Analyse soil nutrients and conditions.</p>
+                <button>Analyse Soil</button>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🌿</span>
+                <h3>Fertilizer Recommendation</h3>
+                <p>Find suitable fertilizers for your crops.</p>
+                <button>Recommend Fertilizer</button>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">📈</span>
+                <h3>Market Prices</h3>
+                <p>Track agricultural commodity prices.</p>
+                <button>View Prices</button>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
